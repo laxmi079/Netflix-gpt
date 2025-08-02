@@ -30,3 +30,10 @@ Built with **Create React App** and **TailwindCSS**.
 - **React** (Create React App)
 - **TailwindCSS** for styling
 - **React Router** for navigation
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/netflix-gpt.git
+   cd netflix-gpt
