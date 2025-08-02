@@ -1,19 +1,32 @@
+# NETFLIX-GPT
 
-#NETFLIX-GPT
-   -Create React App
-   -Configured TailwindCSS
+A React-based Netflix-inspired app enhanced with **GPT-powered search**.  
+Built with **Create React App** and **TailwindCSS**.
 
-#Features
--Login/Sign Up
-  -Sign In /Sign up Form
- -redirect to Browse Page
--Browse (after authentication)
-  -Header
-  -Main Movie
--Tailer in Background
-  -Title & Description
-  -MovieSuggestions
-    -MovieLists * N
--NetflixGPT
-  -Search Bar
-  -Movie Suggestions
+---
+
+## Features
+
+### 🔐 Authentication
+- **Login / Sign Up** flow
+- Combined **Sign In / Sign Up form**
+- Automatic redirect to **Browse page** after authentication
+
+### 🎬 Browse Experience
+- **Header** with navigation
+- **Main Movie Section**:
+  - Trailer playing in the background
+  - Movie title & description overlay
+- **Movie Suggestions**:
+  - Multiple categorized **Movie Lists** (*N*)
+
+### 🤖 NetflixGPT
+- **Search bar powered by GPT** to find and suggest movies
+- Intelligent **movie recommendations** based on user queries
+
+---
+
+## Tech Stack
+- **React** (Create React App)
+- **TailwindCSS** for styling
+- **React Router** for navigation
