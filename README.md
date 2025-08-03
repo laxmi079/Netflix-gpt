@@ -27,7 +27,7 @@ Built with **Create React App** and **TailwindCSS**.
 ---
 
 ## Tech Stack
-- **React** (Create React App)
+- **React** 
 - **TailwindCSS** for styling
 - **React Router** for navigation
 
