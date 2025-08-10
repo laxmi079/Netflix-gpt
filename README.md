@@ -27,7 +27,15 @@ Built with **Create React App** and **TailwindCSS**.
 ---
 
 ## Tech Stack
+<<<<<<< HEAD
 - **React** (with Vite)
+=======
+<<<<<<< HEAD
+- **React** 
+=======
+- **React** (with Vite)
+>>>>>>> b8e1936 (login Header page)
+>>>>>>> 0a8f331 (login Header page)
 - **TailwindCSS** for styling
 - **React Router** for navigation
 
