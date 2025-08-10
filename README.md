@@ -6,6 +6,14 @@ Built with **Create React App** and **TailwindCSS**.
 ---
 
 ## Features
+-Create React App
+-Configured TailwindCSS
+-Header
+-Routing of App
+-Login Form
+-Sign up Form
+-Form Validation
+-useRef Hook
 
 ### 🔐 Authentication
 - **Login / Sign Up** flow

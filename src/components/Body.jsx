@@ -1,27 +1,64 @@
-import React from 'react'
-import Login from './Login'
-import Browse from './Browse'
-import {createBrowserRouter} from 'react-router-dom'
-import {RouterProvider} from 'react-router-dom'
-const Body = () => {
+// src/components/Body.jsx
+import React, { useEffect } from "react";
+import { createBrowserRouter, RouterProvider, useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { Provider, useDispatch } from "react-redux";
+import Login from "./Login";
+import Browse from "./Browse";
+import Header from "./Header";
+import { auth } from "../utils/firebase";
+import appStore from "../utils/appStore";
+import { addUser, removeUser } from "../utils/userSlice";
 
-    const approuter=createBrowserRouter([
-       { path:"/",
-        element:<Login/>,
-    },
-    {
-        path:"/browse",
-        element:<Browse/>,
-    },
+const AuthStatusHandler = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    ]);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid, email, displayName, photoURL }));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
 
-    return (
-         <div>
-            <RouterProvider router={approuter}/>
-         </div>
-    );
-    
+    return () => unsubscribe();
+  }, [dispatch, navigate]);
+
+  return null;
 };
 
-export default Body
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <AuthStatusHandler />
+        <Header />
+        <Login />
+      </>
+    ),
+  },
+  {
+    path: "/browse",
+    element: (
+      <>
+        <AuthStatusHandler />
+        <Header />
+        <Browse />
+      </>
+    ),
+  },
+]);
+
+const Body = () => (
+  <Provider store={appStore}>
+    <RouterProvider router={appRouter} />
+  </Provider>
+);
+
+export default Body;
